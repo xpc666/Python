@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% if book %}
+    <form method="POST">
+      {% for bk in book %}
+      <tr>
+        <td><input type="checkbox" name="booksToDelete" value="{{ bk.bookid }}"></td>
+        <td>{{bk.title}}</td>
+        <td>{{bk.author}}</td>
+        <td>{{bk.published_date}}</td>
+        <td>{{bk.publisher_id}}</td>
+      </tr>
+      {% endfor %}
+
+      <a href="bookpage.html">Delete Book</a>
+
+    </form>
+    {% else %}
+      <p>There are no books in the library!</p>
+    {% endif %}
+    <br>
+      <a href="addBook.html">Add Book</a>
+  </body>
+</html>
