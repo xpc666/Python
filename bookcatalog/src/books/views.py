@@ -45,14 +45,10 @@ def addBook(request):
     return render(request, 'addBook.html', {'form':form})
 
 def deleteBooks(request):
-    print("i am reached 1")
     CHOICE = ['apple', 'banana', 'orange', 'pear']
     if request.method == 'POST':
-        print("i am reached 2")
         toDeleteList = request.POST.getlist ('booksToDelete')
-        print(toDeleteList)
         for bk_id in toDeleteList:
-            print("i am reached 3")
             models.Book.objects.filter(bookid=bk_id).delete()
 
         fruitRemoveList = request.POST.getlist ('fruitToRemove')
