@@ -7,7 +7,7 @@ class NewPublisher(forms.ModelForm):
         fields = '__all__'
 
 class BookForm(forms.ModelForm):
-    toBedeteleted = forms.BooleanField()
+    # toBedeteleted = forms.BooleanField()
 
     class Meta:
         model = Book

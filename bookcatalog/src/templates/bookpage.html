@@ -2,28 +2,39 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Book List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
   </head>
   <body>
-    {% if book %}
-    <form method="POST">
-      {% for bk in book %}
-      <tr>
-        <td><input type="checkbox" name="booksToDelete" value="{{ bk.bookid }}"></td>
-        <td>{{bk.title}}</td>
-        <td>{{bk.author}}</td>
-        <td>{{bk.published_date}}</td>
-        <td>{{bk.publisher_id}}</td>
-      </tr>
-      {% endfor %}
+    <div class="container">
+      <table>
+      {% if book %}
+      <form method="POST">
+        {% csrf_token %}
+        {% for bk in book %}
+        <tr>
+          <td><input type="checkbox" name="booksToDelete" value="{{ bk.bookid }}"></td>
+          <td>{{ bk.title }}</td>
+          <td>{{ bk.author }}</td>
+          <td>{{ bk.published_date }}</td>
+          <td>{{ bk.publisher_id }}</td>
+        </tr>
+        {% endfor %}
+        <br>
+        {% for frt in fruit %}
+        <tr>
+          <td><input type="checkbox" name="fruitToRemove" value="{{ frt }}">     {{ frt }}</td>
+        </tr>
+        {% endfor %}
+        <input type="submit" class="btn" value="Delete Selected"><br>
+      </form>
+      {% else %}
+        <p>There are no books in the library!</p>
+      {% endif %}
+      </table>
+      <br>
+      <a href="addBook.html">Add New Book</a>
+    </div>
 
-      <a href="bookpage.html">Delete Book</a>
-
-    </form>
-    {% else %}
-      <p>There are no books in the library!</p>
-    {% endif %}
-    <br>
-      <a href="addBook.html">Add Book</a>
   </body>
 </html>
