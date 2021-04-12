@@ -3,23 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>Publishers</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous" />
   </head>
   <body>
-    <h1>Publishers</h1>
-    {% if publisher %}
-    <table>
-      {% for x in publisher %}
-      <tr>
-        <td>{{x.name}}</td>
-        <td>{{x.address}}</td>
-        <td>{{x.phone}}</td>
-        <td>{{x.id}}</td>
-      </tr>
-      {% endfor %}
-    </table>
-    {% else %}
-      <p>There are currently no publishers.</p>
-    {% endif %}
-    <a href="addpublisher.html">Add Publisher</a>
+    <div class="container">
+      <table>
+        <h1>Publishers</h1>
+        {% if publisher %}
+        <form method="post">
+          {% csrf_token %}
+          {% for x in publisher %}
+          <tr>
+            <td><input type="checkbox" name="publisherToDelete" value="{{ x.id }}"></td>
+            <td>{{x.name}}</td>
+            <td>{{x.address}}</td>
+            <td>{{x.phone}}</td>
+            <td>{{x.id}}</td>
+          </tr>
+          {% endfor %}
+          <input type="submit" class="btn" value="Delete Selected"><br>
+        </form>
+      </table>
+      {% else %}
+        <p>There are currently no publishers.</p>
+      {% endif %}
+      <a href="addpublisher.html">Add Publisher</a>
+    </div>
+
   </body>
 </html>

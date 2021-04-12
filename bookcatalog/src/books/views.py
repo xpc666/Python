@@ -14,11 +14,25 @@ class PublisherView(View):
         context = {'publisher':publst}
         return render(request,'publisherpage.html', context)
 
+    def post(self, request):
+        toDeleteList = request.POST.getlist ('publisherToDelete')
+        for pb_id in toDeleteList:
+            models.Publisher.objects.filter(id=pb_id).delete()
+
+        return self.get(request)
+
 class BookView(View):
     def get(self, request):
         bklst = models.Book.objects.all()
         context = {'book':bklst}
         return render(request, 'bookpage.html', context)
+
+    def post(self, request):
+        toDeleteList = request.POST.getlist ('booksToDelete')
+        for bk_id in toDeleteList:
+            models.Book.objects.filter(bookid=bk_id).delete()
+
+        return self.get(request)
 
 def addpublisher(request):
     form = NewPublisher()
