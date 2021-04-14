@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 from books import views
 
+app_name = 'books'
+
 urlpatterns = [
     path('publisherpage', views.PublisherView.as_view(), name='publisherpage'),
     path('bookpage', views.BookView.as_view(), name='bookpage'),

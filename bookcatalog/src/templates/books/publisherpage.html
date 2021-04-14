@@ -1,15 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Publishers</title>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous" />
-  </head>
-  <body>
-    <div class="container">
+{% extends "../base.html" %}
+
+{% block body_block %}
       <table>
         <h1>Publishers</h1>
         {% if publisher %}
@@ -31,7 +23,4 @@
         <p>There are currently no publishers.</p>
       {% endif %}
       <a href="newpublisher">Add Publisher</a>
-    </div>
-
-  </body>
-</html>
+{% endblock %}

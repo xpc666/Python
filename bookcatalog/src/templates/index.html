@@ -1,14 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Library</title>
-  </head>
-  <body>
-    <h1>Welcome!</h1>
+{% extends "base.html" %}
 
-    <a href="books/bookpage">Books</a>
-    <a href="books/publisherpage">Publishers</a>
-
-  </body>
-</html>
+{% block body_block %}
+  <h1>Welcome Fantastic Library!</h1>
+{% endblock %}
