@@ -14,7 +14,8 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATE_DIR = Path(BASE_DIR,'templates')
+# TEMPLATE_DIR = Path(BASE_DIR,'templates/books')
+TEMPLATE_DIR2 = Path(BASE_DIR,'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'bookcatalog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [TEMPLATE_DIR2,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
