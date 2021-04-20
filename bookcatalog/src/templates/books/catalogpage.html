@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+{% extends "../base.html" %}
+{% block body_block %}
+      <table>
+      {% if catalog %}
+      <form method="POST">
+        {% csrf_token %}
+        {% for ct in catalog %}
+        <tr>
+          <td><input type="checkbox" name="catalogsToDelete" value="{{ ct.catalog_id }}"></td>
+          <td>{{ ct.catalog_id }}</td>
+          <td>{{ ct.catalog_name }}</td>
+        </tr>
+        {% endfor %}
+        <input type="submit" class="btn" value="Delete Selected"><br>
+      </form>
+      {% else %}
+        <p>There are no catalogs in the library!</p>
+      {% endif %}
+      </table>
+      <br>
+      <a href="newcatalog">Add New Catalog</a>
+    {% endblock %}
+
+  </body>
+</html>
