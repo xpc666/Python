@@ -3,14 +3,14 @@
 {% extends "../base.html" %}
 {% block body_block %}
       <table>
-      {% if catalog %}
+      {% if genre %}
       <form method="POST">
         {% csrf_token %}
-        {% for ct in catalog %}
+        {% for ct in genre %}
         <tr>
-          <td><input type="checkbox" name="catalogsToDelete" value="{{ ct.catalog_id }}"></td>
-          <td>{{ ct.catalog_id }}</td>
-          <td>{{ ct.catalog_name }}</td>
+          <td><input type="checkbox" name="genreToDelete" value="{{ ct.name }}"></td>
+          <!-- <td>{{ ct.catalog_id }}</td> -->
+          <td>{{ ct.name }}</td>
         </tr>
         {% endfor %}
         <input type="submit" class="btn" value="Delete Selected"><br>
@@ -20,7 +20,7 @@
       {% endif %}
       </table>
       <br>
-      <a href="newcatalog">Add New Catalog</a>
+      <a href="newgenre">Add New Catalog</a>
     {% endblock %}
 
   </body>

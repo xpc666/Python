@@ -16,12 +16,7 @@
           <!-- <td>{{ bk.publisher_id }}</td> -->
         </tr>
         {% endfor %}
-        <br>
-        {% for frt in fruit %}
-        <tr>
-          <td><input type="checkbox" name="fruitToRemove" value="{{ frt }}">     {{ frt }}</td>
-        </tr>
-        {% endfor %}
+  
         <input type="submit" class="btn" value="Delete Selected"><br>
       </form>
       {% else %}

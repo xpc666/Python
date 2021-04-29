@@ -1,18 +1,18 @@
 from django import forms
-from books.models import Publisher, Book, Catalog
+from books import models
 
 class NewPublisher(forms.ModelForm):
     class Meta:
-        model = Publisher
+        model = models.Publisher
         fields = '__all__'
 
 class BookForm(forms.ModelForm):
     # toBedeteleted = forms.BooleanField()
     class Meta:
-        model = Book
+        model = models.Book
         fields = '__all__'
 
-class CatalogForm(forms.ModelForm):
+class GenreForm(forms.ModelForm):
     class Meta:
-        model = Catalog
+        model = models.Genre
         fields = '__all__'

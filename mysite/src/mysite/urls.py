@@ -1,4 +1,4 @@
-"""bookcatalog URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -15,20 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from books import views
-# from login.views import UserLoginView
-
-# app_name = 'books'
 
 urlpatterns = [
+    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
-    path('', views.index, name='home'),
-    path('catalog/', views.index, name='home'),
-    path('accounts/', include('django.contrib.auth.urls')),
-    # path('', views.index, name='home'),
-    # path('', UserLoginView.as_view(), name='login'),
-    # path('logout', UserLoginView.as_view(), name='logout'),
-    path('books/', include('books.urls')),
-    # path('login/', include('login.urls')),
-    # path('search/', include('search.urls'))
 ]
